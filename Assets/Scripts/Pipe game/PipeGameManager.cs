@@ -7,7 +7,7 @@ public class PipeGameManager : MonoBehaviour
     private float timer;
     private bool timeUp = false;
 
-    public MouseController mouseController; // reference to your mouse script
+    public MouseControllerPipe mouseController; // reference to your mouse script
     public Text timerText;       // reference to TMP text object
 
     void Start()

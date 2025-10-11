@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class MouseController : MonoBehaviour
+public class MouseControllerPipe : MonoBehaviour
 {
     public Transform[] pipes; // Assign pipe transforms in order from start to end
     public float moveSpeed = 2f;
