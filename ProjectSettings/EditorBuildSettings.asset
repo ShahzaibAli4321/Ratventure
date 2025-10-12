@@ -8,6 +8,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Pipe.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/Pulley.unity
+    guid: 6a7c3f75e3b872e43bab71c552ca395b
+  - enabled: 1
+    path: Assets/Scenes/Jump.unity
+    guid: 1ce3a50a45117234da4226c5e6128138
+  - enabled: 1
+    path: Assets/Scenes/Road.unity
+    guid: b2a66162780957f42a37fe52cb5d8036
+  - enabled: 1
+    path: Assets/Scenes/Round.unity
+    guid: 67d9f1935fc23e445ad79356cc268649
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

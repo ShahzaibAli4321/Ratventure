@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MouseControllerJump : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class MouseControllerJump : MonoBehaviour
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, groundLayer);
 
         // jump only when grounded
-        if (isGrounded && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow)))
+        if (isGrounded && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetMouseButtonDown(0)))
         {
             Mouse.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
@@ -27,7 +28,7 @@ public class MouseControllerJump : MonoBehaviour
         if (collision.collider.CompareTag("Mouse Trap"))
         {
             Debug.Log("Mouse Died");
-            Time.timeScale = 0.0f;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 }

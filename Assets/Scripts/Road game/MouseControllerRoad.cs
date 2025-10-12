@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MouseController : MonoBehaviour
 {
@@ -14,11 +15,11 @@ public class MouseController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.DownArrow) && transform.position.y >= -2.1f)
+        if ((Input.GetKey(KeyCode.DownArrow) || Input.GetMouseButton(1)) && transform.position.y >= -2.1f)
         {
             transform.Translate(Vector2.down * MouseSpeed * Time.deltaTime);
         }
-        if (Input.GetKey(KeyCode.UpArrow) && transform.position.y <= 2.1f)
+        if ((Input.GetKey(KeyCode.UpArrow) || Input.GetMouseButton(0)) && transform.position.y <= 2.1f)
         {
             transform.Translate(Vector2.up * MouseSpeed * Time.deltaTime);
         }
@@ -28,7 +29,7 @@ public class MouseController : MonoBehaviour
         if (hit != null)
         {
             Debug.Log("Mouse died");
-            Time.timeScale = 0f;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 }

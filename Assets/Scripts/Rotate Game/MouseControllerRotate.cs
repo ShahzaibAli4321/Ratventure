@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MouseControllerRotate : MonoBehaviour
 {
@@ -48,21 +49,6 @@ public class MouseControllerRotate : MonoBehaviour
                 isReturning = false;
             }
         }
-
-        //// Check for overlap
-        //Collider2D hit = Physics2D.OverlapCircle(transform.position, 1f, MouseTrap);
-        //if (hit != null)
-        //{
-        //    Debug.Log("Mouse died");
-        //    Time.timeScale = 0f;
-        //}
-
-        //Collider2D hit1 = Physics2D.OverlapCircle(transform.position, 1f, Cheese);
-        //if (hit1 != null)
-        //{
-        //    Debug.Log("Mouse Won");
-        //    Time.timeScale = 0f;
-        //}
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -70,13 +56,18 @@ public class MouseControllerRotate : MonoBehaviour
         if (collision.collider.CompareTag("Mouse Trap"))
         {
             Debug.Log("Mouse died");
-            Time.timeScale = 0f;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
         if (collision.collider.CompareTag("Cheese"))
         {
             Debug.Log("Mouse Won");
-            Time.timeScale = 0f;
+            int i = Random.Range(0, 5);
+            while (i == SceneManager.GetActiveScene().buildIndex)
+            {
+                i = Random.Range(0, 5);
+            }
+            SceneManager.LoadScene(i);
         }
     }
 }

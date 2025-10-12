@@ -1,8 +1,8 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI; // for TextMeshPro
+using UnityEngine.UI;
 
-public class RoadGameManager : MonoBehaviour
+public class RotateGameManager : MonoBehaviour
 {
     public float timeLimit = 10f;     // seconds for player to adjust pipes
     private float timer;
@@ -35,12 +35,7 @@ public class RoadGameManager : MonoBehaviour
     void OnTimeUp()
     {
         Debug.Log("Time's up!");
-        int i = Random.Range(0, 5);
-        while (i == SceneManager.GetActiveScene().buildIndex)
-        {
-            i = Random.Range(0, 5);
-        }
-        SceneManager.LoadScene(i);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     void UpdateTimerUI()
