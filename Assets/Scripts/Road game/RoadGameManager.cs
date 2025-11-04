@@ -11,7 +11,8 @@ public class RoadGameManager : MonoBehaviour
 
     void Start()
     {
-        timer = timeLimit;
+        MenuManager.previousScene = SceneManager.GetActiveScene().buildIndex;
+        timer = timeLimit * MenuManager.timeMultiplier;
         UpdateTimerUI();
     }
 
@@ -35,12 +36,8 @@ public class RoadGameManager : MonoBehaviour
     void OnTimeUp()
     {
         Debug.Log("Time's up!");
-        int i = Random.Range(0, 5);
-        while (i == SceneManager.GetActiveScene().buildIndex)
-        {
-            i = Random.Range(0, 5);
-        }
-        SceneManager.LoadScene(i);
+        MenuManager.score++;
+        SceneManager.LoadScene(1);
     }
 
     void UpdateTimerUI()

@@ -11,6 +11,11 @@ public class MouseControllerJump : MonoBehaviour
 
     private bool isGrounded;
 
+    private void Start()
+    {
+        Mouse.gravityScale = 2 / MenuManager.timeMultiplier;
+    }
+
     void Update()
     {
         // check if the mouse is on the ground
@@ -28,7 +33,7 @@ public class MouseControllerJump : MonoBehaviour
         if (collision.collider.CompareTag("Mouse Trap"))
         {
             Debug.Log("Mouse Died");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            SceneManager.LoadScene(2);
         }
     }
 }

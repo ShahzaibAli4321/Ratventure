@@ -14,7 +14,7 @@ public class Pipe : MonoBehaviour
 
     void OnMouseDown()
     {
-        if (!isRotating && gameManager != null && gameManager.CanRotate())
+        if (!isRotating && gameManager.CanRotate())
         {
             targetRotation *= Quaternion.Euler(0, 0, 90);
             isRotating = true;

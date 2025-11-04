@@ -1,36 +1,3 @@
-//using UnityEngine;
-
-//public class MouseControllerPulley : MonoBehaviour
-//{
-//    public float constantSpeed = 2f;     // Constant movement speed to the right
-//    public float pushForce = 5f;         // Force applied to the left when clicked
-
-//    private Rigidbody2D rb;
-
-//    void Start()
-//    {
-//        rb = GetComponent<Rigidbody2D>();
-//    }
-
-//    void FixedUpdate()
-//    {
-//        // Apply a small constant velocity to the right
-//        rb.linearVelocity = new Vector2(constantSpeed, rb.linearVelocity.y);
-//    }
-
-//    void Update()
-//    {
-//        // When mouse is clicked or Space is pressed, push left
-//        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
-//        {
-//            rb.AddForce(Vector2.left * pushForce, ForceMode2D.Impulse);
-//            Debug.Log("adsfgskad");
-//        }
-//    }
-//}
-
-
-
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]

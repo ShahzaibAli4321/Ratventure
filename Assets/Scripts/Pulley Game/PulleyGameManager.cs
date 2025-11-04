@@ -19,11 +19,12 @@ public class PulleyGameManager : MonoBehaviour
 
     void Start()
     {
+        MenuManager.previousScene = SceneManager.GetActiveScene().buildIndex;
         // Total rope length is the initial sum of both rope distances
         totalRopeLength = Vector2.Distance(mouse.position, pulley.position) +
                           Vector2.Distance(pulley.position, cheese.position);
 
-        timer = timeLimit;
+        timer = timeLimit * MenuManager.timeMultiplier;
         UpdateTimerUI();
     }
 
@@ -63,7 +64,7 @@ public class PulleyGameManager : MonoBehaviour
         cheese.position = cheesePos;
 
         // Update horizontal rope
-        Vector3 midHorizontal = (mouse.position + pulley.position) / 2f;
+        Vector3 midHorizontal = (pulley.position + mouse.position) / 2f;
         ropeHorizontal.transform.position = midHorizontal;
         ropeHorizontal.size = new Vector2(0.3f, horizontalLength);
 
@@ -76,7 +77,7 @@ public class PulleyGameManager : MonoBehaviour
     void OnTimeUp()
     {
         Debug.Log("Time's up!");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(2);
     }
 
     void UpdateTimerUI()

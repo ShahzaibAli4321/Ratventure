@@ -7,6 +7,9 @@ public class Road : MonoBehaviour
 
     private void FixedUpdate()
     {
-        road.transform.Translate(Vector2.left * roadSpeed * Time.deltaTime);
+        float adjustedSpeed = roadSpeed / MenuManager.timeMultiplier;
+        road.transform.Translate(Vector2.left * adjustedSpeed * Time.deltaTime);
+
+        //road.transform.Translate(Vector2.left * (roadSpeed * (2 - MenuManager.timeMultiplier)) * Time.deltaTime);
     }
 }

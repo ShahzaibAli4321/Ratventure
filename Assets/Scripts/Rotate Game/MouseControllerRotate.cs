@@ -56,18 +56,14 @@ public class MouseControllerRotate : MonoBehaviour
         if (collision.collider.CompareTag("Mouse Trap"))
         {
             Debug.Log("Mouse died");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            SceneManager.LoadScene(2);
         }
 
         if (collision.collider.CompareTag("Cheese"))
         {
             Debug.Log("Mouse Won");
-            int i = Random.Range(0, 5);
-            while (i == SceneManager.GetActiveScene().buildIndex)
-            {
-                i = Random.Range(0, 5);
-            }
-            SceneManager.LoadScene(i);
+            MenuManager.score++;
+            SceneManager.LoadScene(1);
         }
     }
 }

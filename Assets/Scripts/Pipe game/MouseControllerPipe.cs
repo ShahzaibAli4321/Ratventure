@@ -10,6 +10,7 @@ public class MouseControllerPipe : MonoBehaviour
 
     public void MoveAlongPath()
     {
+        MenuManager.previousScene = SceneManager.GetActiveScene().buildIndex;
         StartCoroutine(MoveThroughPipes());
     }
 
@@ -42,12 +43,8 @@ public class MouseControllerPipe : MonoBehaviour
         }
 
         Debug.Log("Mouse successfully passed all pipes!");
-        int a = Random.Range(0, 5);
-        while (a == SceneManager.GetActiveScene().buildIndex)
-        {
-            a = Random.Range(0, 5);
-        }
-        SceneManager.LoadScene(a);
+        MenuManager.score++;
+        SceneManager.LoadScene(1);
     }
 
     private IEnumerator FallDown(Vector3 startPos)
@@ -60,6 +57,6 @@ public class MouseControllerPipe : MonoBehaviour
         }
 
         Debug.Log("Mouse fell down!");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(2);
     }
 }

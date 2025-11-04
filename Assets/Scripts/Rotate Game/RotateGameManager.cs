@@ -11,7 +11,8 @@ public class RotateGameManager : MonoBehaviour
 
     void Start()
     {
-        timer = timeLimit;
+        MenuManager.previousScene = SceneManager.GetActiveScene().buildIndex;
+        timer = timeLimit * MenuManager.timeMultiplier;
         UpdateTimerUI();
     }
 
@@ -35,7 +36,7 @@ public class RotateGameManager : MonoBehaviour
     void OnTimeUp()
     {
         Debug.Log("Time's up!");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(2);
     }
 
     void UpdateTimerUI()
